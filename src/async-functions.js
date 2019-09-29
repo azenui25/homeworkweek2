@@ -3,14 +3,10 @@ const fetch = require('node-fetch')
 
 
 const getTatooineResidents = () => {
-    const promise = fetch('https://swapi.co/api/planets/1/')
-
-    return promise
-        .then(response => {
-            return response.json()
-        })
-        .then(myJSON => {
-            return myJSON.residents
+    fetch('https://swapi.co/api/planets/1/')
+        .then(response => response.json())
+        .then(data => {
+            return data.residents
         })
         .catch(err => {
             console.log(err)
@@ -21,5 +17,5 @@ getTatooineResidents()
 
 
 module.exports = {
-    getTatooineResidents,
+    getTatooineResidents
 }
